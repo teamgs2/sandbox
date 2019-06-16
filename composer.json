@@ -1,0 +1,6 @@
+{
+    "name": "ericthao/sandbox",
+    "require": {
+        "michelf/php-markdown": "^1.8"
+    }
+}
