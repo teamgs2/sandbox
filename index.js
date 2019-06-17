@@ -91,5 +91,5 @@ const highValue = orders.filter((orderValue) => {
 });
 
 console.log({ total, withTax, highValue });
- */
+ */   
  
