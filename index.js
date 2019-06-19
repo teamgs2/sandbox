@@ -91,5 +91,42 @@ const highValue = orders.filter((orderValue) => {
 });
 
 console.log({ total, withTax, highValue });
- */   
- 
+ */
+
+//
+// ─── PROMISE ────────────────────────────────────────────────────────────────────
+//
+
+var script = document.createElement('script');
+script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js';
+script.type = 'text/javascript';
+document.getElementsByTagName('head')[0].appendChild(script);
+
+$(document).ready(function() {
+	var get = (url, success, errorCallback) => {
+		$.ajax({
+			type    : 'GET',
+			url     : url,
+			success : (response) => {
+				success(response);
+			},
+			error   : (error) => {
+				errorCallback(error);
+			}
+		});
+	};
+
+	var getPosts = () => {
+		get(
+			'https://jsonplaceholder.typicode.com/useddsrs',
+			(response) => {
+				console.log(response[0]);
+			},
+			(error) => {
+				console.log(error);
+			}
+		);
+	};
+
+	console.log(getPosts());
+});
