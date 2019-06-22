@@ -24,4 +24,4 @@ echo Markdown::defaultTransform("coucou **markdown**");
 
 </html>
 
-<script src="index.js"></script>
+<script src="test_code/when.js"></script>

@@ -103,30 +103,57 @@ script.type = 'text/javascript';
 document.getElementsByTagName('head')[0].appendChild(script);
 
 $(document).ready(function() {
-	var get = (url, success, errorCallback) => {
-		$.ajax({
-			type    : 'GET',
-			url     : url,
-			success : (response) => {
-				success(response);
-			},
-			error   : (error) => {
-				errorCallback(error);
-			}
+	var get = (url) => {
+		return new Promise(function(resolve, reject) {
+			$.ajax({
+				type    : 'GET',
+				url     : url,
+				success : (response) => {
+					resolve(response);
+				},
+				error   : (error) => {
+					reject(error);
+				}
+			});
 		});
 	};
 
-	var getPosts = () => {
+	get('https://jsonplaceholder.typicode.com/usefezfezrs')
+		.then(function(response) {
+			console.log(response);
+		})
+		.catch(function(error) {
+			console.log(error);
+		});
+
+	/* 	var getPosts = (success, error) => {
 		get(
-			'https://jsonplaceholder.typicode.com/useddsrs',
+			'https://jsonplaceholder.typicode.com/usdzdfzers',
 			(response) => {
-				console.log(response[0]);
+				var users = response;
+				get(
+					'https://jsonplaceholder.typicode.com/comments?userId=' + users[0].id,
+					(response) => {
+						var posts = response;
+						success(posts);
+					},
+					(e) => {
+						error(e);
+					}
+				);
 			},
-			(error) => {
-				console.log(error);
+			(e) => {
+				error(e);
 			}
 		);
 	};
 
-	console.log(getPosts());
+	getPosts(
+		(response) => {
+			console.log(response);
+		},
+		(error) => {
+			console.log(error);
+		}
+	); */
 });
