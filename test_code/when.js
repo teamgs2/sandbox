@@ -8,9 +8,7 @@ https://jsonplaceholder.typicode.com/users
 */
 
 $(document).ready(function() {
-	console.log('COUCOU');
-
-	sources = [ 'posts', 'comments', 'albums', 'photos', 'todos', 'users' ];
+	sources = [ 'posts', 'commeffnts', 'albums', 'photos', 'todos', 'users' ];
 	requests = [];
 	$.each(sources, function(indexInArray, valueOfElement) {
 		requests.push(
@@ -26,9 +24,14 @@ $(document).ready(function() {
 	$.when
 		.apply($, requests)
 		.then(function() {
-			console.log(arguments);
+			console.log('THEN : ', arguments);
 		})
 		.fail(function() {
-			console.log(arguments);
+			console.log('FAIL : ', arguments);
+		})
+		.catch(function() {
+			console.log(this);
+
+			console.log('CATCH : ');
 		});
 });
