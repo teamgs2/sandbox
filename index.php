@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-toto
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
